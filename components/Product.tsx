@@ -1,6 +1,9 @@
+import { routes } from '@/routes'
+import Link from 'next/link'
 import { Rating } from './Rating'
 
 interface ProductDetails {
+  id: number
   title: string
   description: string
   image: {
@@ -10,7 +13,7 @@ interface ProductDetails {
   rating: number
 }
 
-type ProductListItem = Pick<ProductDetails, 'title' | 'image'>
+type ProductListItem = Pick<ProductDetails, 'id' | 'title' | 'image'>
 
 interface ProductProps {
   data: ProductDetails
@@ -21,10 +24,12 @@ interface ProductDetailsProps {
 }
 
 export const ProductDetails = ({
-  data: { image, title },
+  data: { id, image, title },
 }: ProductDetailsProps) => (
   <>
     <img src={image.url} alt={image.alt} />
-    <h2 className='p-4 text-3xl font-bold'>{title}</h2>
+    <Link href={routes.product.path.replace(':id', id)}>
+      <h2 className='p-4 text-3xl font-bold'>{title}</h2>
+    </Link>
   </>
 )

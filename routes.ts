@@ -11,6 +11,10 @@ export const routes = {
     name: 'Products',
     path: '/products/',
   },
+  product: {
+    name: 'Product',
+    path: '/products/:id',
+  },
 }
 
 export const navigationRoutes = [routes.home, routes.about, routes.products]

@@ -36,6 +36,7 @@ const ProductsPage = ({
         <li key={`${id}-${title}`} className='shadow-xl border-2'>
           <ProductDetails
             data={{
+              id,
               title,
               image: {
                 url: image,
