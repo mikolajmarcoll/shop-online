@@ -1,9 +1,10 @@
 import { ReactNode } from 'react'
 
+import { Colors } from '@/colors'
+
 import { Header } from './Header'
 import { Main } from './Main'
 import { Footer } from './Footer'
-import { Colors } from '../colors'
 
 interface LayoutProps {
   children: ReactNode

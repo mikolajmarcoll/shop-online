@@ -2,8 +2,7 @@
 
 import { InferGetStaticPropsType } from 'next'
 
-import { Layout } from '../../components/Layout'
-import { ProductDetails } from '../../components/Product'
+import { ProductDetails } from '@/components/Product'
 
 interface Rating {
   rate: number
@@ -30,24 +29,22 @@ interface StoreApiResponse {
 const ProductsPage = ({
   data,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Layout>
-    <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
-      {data.map(({ id, title, image }) => (
-        <li key={`${id}-${title}`} className='shadow-xl border-2'>
-          <ProductDetails
-            data={{
-              id,
-              title,
-              image: {
-                url: image,
-                alt: title,
-              },
-            }}
-          />
-        </li>
-      ))}
-    </ul>
-  </Layout>
+  <ul className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4'>
+    {data.map(({ id, title, image }) => (
+      <li key={`${id}-${title}`} className='shadow-xl border-2'>
+        <ProductDetails
+          data={{
+            id,
+            title,
+            image: {
+              url: image,
+              alt: title,
+            },
+          }}
+        />
+      </li>
+    ))}
+  </ul>
 )
 
 export default ProductsPage

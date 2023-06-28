@@ -4,11 +4,10 @@ import { Button, Group } from '@mantine/core'
 import { useDisclosure, useDebouncedValue } from '@mantine/hooks'
 import { useState } from 'react'
 
-import { Layout } from '../../components/Layout'
-import { ProductDetails } from '../../components/Product'
-import { CustomModal } from '../../components/Modal'
-import { CustomCard } from '../../components/Card'
-import { Input } from '../../components/Input'
+import { ProductDetails } from '@/components/Product'
+import { CustomModal } from '@/components/Modal'
+import { CustomCard } from '@/components/Card'
+import { Input } from '@/components/Input'
 
 const DATA = {
   description:
@@ -39,7 +38,7 @@ const AboutPage = () => {
   //
 
   return (
-    <Layout>
+    <>
       <h1 className='text-5xl font-bold text-center text-red-500 mt-6 border-8 border-green-700 antialiased shadow-pink-400'>
         Hello! :wave
       </h1>
@@ -50,7 +49,7 @@ const AboutPage = () => {
       <Group position='center'>
         <Button onClick={open}>Open modal</Button>
       </Group>
-      <ProductDetails data={DATA} />
+
       <CustomCard
         title='Norway Fjord Adventures'
         description='With Fjord Tours you can explore more of the magical fjord landscapes with
@@ -60,7 +59,7 @@ const AboutPage = () => {
           alt: 'Norway',
         }}
       />
-    </Layout>
+    </>
   )
 }
 

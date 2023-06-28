@@ -1,4 +1,4 @@
-import { Colors } from '../colors'
+import { Colors } from '@/colors'
 
 export const Footer = () => (
   <footer aria-label='Site Footer' className={`bg-${Colors.white}`}>
