@@ -1,4 +1,5 @@
 import { routes } from '@/routes'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Rating } from './Rating'
 
@@ -27,8 +28,15 @@ export const ProductDetails = ({
   data: { id, image, title },
 }: ProductDetailsProps) => (
   <>
-    <img src={image.url} alt={image.alt} />
-    <Link href={routes.product.path.replace(':id', id)}>
+    <Image
+      src={image.url}
+      alt={image.alt}
+      width={500}
+      height={500}
+      quality={80}
+      loading='lazy'
+    />
+    <Link href={routes.product.path.replace(':id', id.toString())}>
       <h2 className='p-4 text-3xl font-bold'>{title}</h2>
     </Link>
   </>
